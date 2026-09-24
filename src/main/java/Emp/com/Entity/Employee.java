@@ -1,28 +1,34 @@
-package Entity;
+package Emp.com.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Employee {
 	
 	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column
+	
 	private String name;
-	@Column
+	
 	private String address;
-	@Column
+	
 	private float salary;
-	@Column
+	
 	private String designation;
-	@Column
-	private String Qulification;
+	
+	private String qualification;
+	
 	@Column(unique=true)
 	private String email;
 	@Column(unique=true)
-	private int mobileNo;
+	private long mobileNo;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -53,11 +59,12 @@ public class Employee {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	public String getQulification() {
-		return Qulification;
+	public String getQualification() {
+	    return qualification;
 	}
-	public void setQulification(String qulification) {
-		Qulification = qulification;
+
+	public void setQualification(String qualification) {
+	    this.qualification = qualification;
 	}
 	public String getEmail() {
 		return email;
@@ -65,16 +72,16 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getMobileNo() {
+	public long getMobileNo() {
 		return mobileNo;
 	}
-	public void setMobileNo(int mobileNo) {
+	public void setMobileNo(long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + salary
-				+ ", designation=" + designation + ", Qulification=" + Qulification + ", email=" + email + ", mobileNo="
+				+ ", designation=" + designation + ", Qulification=" + qualification + ", email=" + email + ", mobileNo="
 				+ mobileNo + "]";
 	}
 }
